@@ -1,19 +1,11 @@
-import * as Koa from 'koa'
-import * as Router from 'koa-router'
-import * as cors from '@koa/cors'
-import * as bodyParser from 'koa-bodyparser';
+import Koa from 'koa'
+import cors from '@koa/cors'
+import bodyParser from 'koa-bodyparser';
 import { PORT } from './config'
 import database from './db'
+import router from './api'
 
 const app = new Koa()
-const router = new Router()
-
-router.get('/', async (ctx) => {
-  ctx.body = {
-    name: 'Hello',
-    sur: 'World'
-  };
-})
 
 app.use(bodyParser())
 app.use(cors())
