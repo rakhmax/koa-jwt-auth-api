@@ -1,4 +1,12 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Document } from 'mongoose'
+
+interface IUser extends Document {
+  firstname: string
+  lastname: string
+  email: string
+  phone: string
+  password: string
+}
 
 const UserSchema: Schema = new Schema({
   firstname: {
@@ -9,8 +17,8 @@ const UserSchema: Schema = new Schema({
     type: String,
     required: true
   },
-  email: { 
-    type: String, 
+  email: {
+    type: String,
     unique: true,
     required: true
   },
@@ -22,8 +30,8 @@ const UserSchema: Schema = new Schema({
     type: String,
     required: true
   }
-}, { timestamps: true });
+}, { timestamps: true })
 
-UserSchema.set('toJSON', { virtuals: true });
+UserSchema.set('toJSON', { virtuals: true })
 
-export const User = model('User', UserSchema);
+export default model<IUser>('User', UserSchema)

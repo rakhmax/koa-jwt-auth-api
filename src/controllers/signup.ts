@@ -1,4 +1,4 @@
-import { User } from '../models/User';
+import { User } from '../models'
 import bcrypt from 'bcrypt'
 
 const signup = async (ctx: any) => {
@@ -14,7 +14,7 @@ const signup = async (ctx: any) => {
     await User.create({...ctx.request.body, password})
     ctx.body = 'Успешная регистрация'
   } catch (error) {
-    throw error;
+    throw error
   }
 }
 

@@ -1,10 +1,10 @@
-import { User } from '../models/User'
+import { User } from '../models'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
 const login = async (ctx: any) => {
   try {
-    const user: any = await User.findOne({ email: ctx.request.body.email })
+    const user = await User.findOne({ email: ctx.request.body.email })
 
     if (!user) {
       ctx.throw(400, 'Пользователя не существует или неверный пароль')
