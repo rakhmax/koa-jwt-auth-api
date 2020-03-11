@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "serve": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/app.ts"
+    "serve": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",
@@ -14,7 +16,8 @@
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^8.0.8",
-    "mongoose": "^5.9.3"
+    "mongoose": "^5.9.3",
+    "tsc": "^1.20150623.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
