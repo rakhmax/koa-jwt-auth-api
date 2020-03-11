@@ -9,7 +9,7 @@ const signup = async (ctx: any) => {
       ctx.throw(400, 'Пользователь уже существует')
     }
 
-    let password = await bcrypt.hash(ctx.request.body.password, 10);
+    let password = await bcrypt.hash(ctx.request.body.password, 10)
 
     await User.create({...ctx.request.body, password})
     ctx.body = 'Успешная регистрация'

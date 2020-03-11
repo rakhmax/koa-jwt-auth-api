@@ -10,21 +10,21 @@ const login = async (ctx: any) => {
       ctx.throw(400, 'Пользователя не существует или неверный пароль')
     }
 
-    const isPasswordCorrect = await bcrypt.compare(ctx.request.body.password, user.password);
+    const isPasswordCorrect = await bcrypt.compare(ctx.request.body.password, user.password)
 
     if (!isPasswordCorrect) {
       ctx.throw(400, 'Пользователя не существует или неверный пароль')
     }
 
     const payload = {
-      id: user.id,
+      userId: user.id,
       name: user.firstname
     }
 
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' })
     ctx.body = { userId: user.id, token: token, tokenExpiration: 1 }
   } catch (error) {
-    throw error;
+    throw error
   }
 }
 
