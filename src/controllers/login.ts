@@ -21,8 +21,9 @@ const login = async (ctx: any) => {
       name: user.firstname
     }
 
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' })
-    ctx.body = { userId: user.id, token: token, tokenExpiration: 1 }
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '7d' })
+    
+    ctx.body = { userId: user.id, token: token, tokenExpiration: 7 * 24 * 60 * 60 }
   } catch (error) {
     throw error
   }

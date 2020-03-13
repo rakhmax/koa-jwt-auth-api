@@ -6,7 +6,7 @@ const getUser = async (ctx: any) => {
   }
 
   try {
-    const { firstname, lastname, email, phone } = await User.findById(ctx.request.body.userId)
+    const { firstname, lastname, email, phone } = await User.findById(ctx.userId)
 
     ctx.body = { firstname, lastname, email, phone }
   } catch (error) {

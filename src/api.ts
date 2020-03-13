@@ -9,6 +9,6 @@ const router = new Router()
 
 router.post('/signup', signup)
 router.post('/login', login)
-router.post('/user', getUser)
+router.get('/user', getUser)
 
 export default router
