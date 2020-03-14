@@ -1,6 +1,7 @@
 import { User } from '../models'
+import { Context } from 'koa';
 
-const getUser = async (ctx: any) => {
+const getUser = async (ctx: Context) => {
   if(!ctx.isAuth) {
     ctx.throw(401, 'Unauthorized')
   }

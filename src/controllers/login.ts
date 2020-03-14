@@ -1,8 +1,9 @@
 import { User } from '../models'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
+import { Context } from 'koa'
 
-const login = async (ctx: any) => {
+const login = async (ctx: Context) => {
   try {
     const user = await User.findOne({ email: ctx.request.body.email })
 

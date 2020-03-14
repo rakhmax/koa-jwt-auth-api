@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
+import { Context, Next } from 'koa'
 
-const isAuth = async (ctx: any, next: any) => {
+const isAuth = async (ctx: Context, next: Next) => {
   const authHeader: string = ctx.request.headers.authorization
 
   if (!authHeader) {

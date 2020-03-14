@@ -1,7 +1,8 @@
 import { User } from '../models'
 import bcrypt from 'bcrypt'
+import { Context } from 'koa'
 
-const signup = async (ctx: any) => {
+const signup = async (ctx: Context) => {
   try {
     const user = await User.findOne({ email: ctx.request.body.email })
 

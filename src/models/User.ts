@@ -2,9 +2,9 @@ import { Schema, model, Document } from 'mongoose'
 
 interface IUser extends Document {
   firstname: string
-  lastname: string
+  lastname?: string
   email: string
-  phone: string
+  phone?: string
   password: string
 }
 
