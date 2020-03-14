@@ -4,7 +4,7 @@ import app from './app'
 
 const db = async () => {
   try {
-    await connect(MONGO_URI, { useNewUrlParser: true })
+    await connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
     console.clear()
     app.listen(PORT, () => console.log(`Server is running in http://localhost:${PORT}`))
